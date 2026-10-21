@@ -1,0 +1,175 @@
+.home-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px 40px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header-area {
+  width: 100%;
+}
+
+.home-main-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Side navigation buttons matching screenshot */
+.nav-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 80px;
+  background-color: #1e1e24;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.nav-arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke: #ffffff;
+  transition: transform 0.2s ease, stroke 0.2s ease;
+}
+
+.nav-arrow:hover {
+  background-color: #2a2a34;
+  border-color: var(--spotify-green);
+  box-shadow: 0 0 15px rgba(29, 185, 84, 0.3);
+}
+
+.nav-arrow:hover svg {
+  stroke: var(--spotify-green);
+}
+
+.nav-arrow-left:hover svg {
+  transform: translateX(-3px);
+}
+
+.nav-arrow-right:hover svg {
+  transform: translateX(3px);
+}
+
+/* Grid matching screenshot */
+.home-articles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 36px;
+  flex: 1;
+  width: 100%;
+  align-items: start;
+}
+
+.grid-left-col {
+  width: 100%;
+}
+
+.grid-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  margin-bottom: 20px;
+}
+
+.indicator-dot {
+  width: 28px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator-dot.active {
+  background-color: var(--spotify-green);
+  width: 44px;
+  box-shadow: 0 0 10px var(--spotify-green-glow);
+}
+
+/* Footer Stats Bar */
+.spotify-badge-footer {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-stats-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: #121216;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px 28px;
+  width: 100%;
+  max-width: 960px;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats-number {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  color: var(--spotify-green);
+  font-size: 1.1rem;
+}
+
+.stats-label {
+  font-size: 0.85rem;
+  color: #cfcfe0;
+  font-weight: 500;
+}
+
+.stats-separator {
+  width: 1px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 900px) {
+  .home-articles-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .nav-arrow {
+    display: none;
+  }
+
+  .footer-stats-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats-separator {
+    display: none;
+  }
+}

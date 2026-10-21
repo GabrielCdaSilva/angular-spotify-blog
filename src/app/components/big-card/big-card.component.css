@@ -1,0 +1,181 @@
+.big-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: transform 0.25s ease;
+}
+
+.big-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.big-card-photo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  overflow: hidden;
+  background-color: #1a1a20;
+  border-radius: 4px;
+}
+
+.big-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.big-card-container:hover .big-card-photo {
+  transform: scale(1.05);
+}
+
+.big-card-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: rgba(18, 18, 20, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--spotify-green);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--spotify-green);
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.play-button-icon {
+  width: 54px;
+  height: 54px;
+  background-color: var(--spotify-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transform: scale(0.85);
+  transition: transform 0.25s ease, background-color 0.2s ease;
+}
+
+.play-button-icon svg {
+  width: 22px;
+  height: 22px;
+  margin-left: 2px;
+}
+
+.big-card-container:hover .play-overlay {
+  opacity: 1;
+}
+
+.big-card-container:hover .play-button-icon {
+  transform: scale(1);
+  background-color: var(--spotify-green-hover);
+}
+
+.big-card-content {
+  padding: 16px 4px 10px 4px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.big-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.big-card-container:hover .big-card-title {
+  color: var(--spotify-green);
+}
+
+.big-card-description {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.big-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  font-size: 0.8rem;
+  color: var(--text-subtle);
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.streams-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--spotify-green);
+  font-weight: 600;
+}
+
+.spotify-tag-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.read-more {
+  color: #dcdce0;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.big-card-container:hover .read-more {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .big-card-photo-wrapper {
+    height: 240px;
+  }
+  .big-card-title {
+    font-size: 1.25rem;
+  }
+}

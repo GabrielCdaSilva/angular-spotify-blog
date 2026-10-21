@@ -1,0 +1,55 @@
+.menu-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: var(--bg-primary);
+}
+
+.menu-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 14px;
+}
+
+.menu-links li a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #d1d1d6;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.menu-links li a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.spotify-link:hover {
+  color: var(--spotify-green) !important;
+  text-shadow: 0 0 10px var(--spotify-green-glow) !important;
+}
+
+.spotify-mini-icon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.bullet {
+  color: #555560;
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .menu-links {
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,98 @@
+<div class="home-container">
+  <div class="home-header-area">
+    <app-menu-title></app-menu-title>
+  </div>
+
+  <div class="home-main-carousel-wrapper">
+    <!-- Left Navigation Arrow (Like in screenshot) -->
+    <button
+      class="nav-arrow nav-arrow-left"
+      (click)="prevPage()"
+      type="button"
+      aria-label="Página anterior de hits"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <!-- Main Content Area: Left Big Card + Right Small Cards Stack -->
+    <main class="home-articles-grid">
+      <!-- Left Column: Featured Highlight (Big Card) -->
+      <section class="grid-left-col">
+        <app-big-card
+          [id]="currentBigCard().id"
+          [photoCover]="currentBigCard().photoCover"
+          [cardTitle]="currentBigCard().title"
+          [cardDescription]="currentBigCard().description"
+          [artist]="currentBigCard().artist"
+          [rank]="currentBigCard().rank"
+          [streams]="currentBigCard().streams"
+        ></app-big-card>
+      </section>
+
+      <!-- Right Column: Secondary Articles (Small Cards) -->
+      <section class="grid-right-col">
+        @for (item of currentSmallCards(); track item.id) {
+          <app-small-card
+            [id]="item.id"
+            [photoCover]="item.photoCover"
+            [cardTitle]="item.title"
+            [artist]="item.artist"
+            [rank]="item.rank"
+            [streams]="item.streams"
+          ></app-small-card>
+        }
+      </section>
+    </main>
+
+    <!-- Right Navigation Arrow (Like in screenshot) -->
+    <button
+      class="nav-arrow nav-arrow-right"
+      (click)="nextPage()"
+      type="button"
+      aria-label="Próxima página de hits"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Pagination indicators -->
+  <div class="carousel-indicators">
+    @for (page of [0, 1]; track page) {
+      <button
+        class="indicator-dot"
+        [class.active]="currentPage() === page"
+        (click)="setPage(page)"
+        [attr.aria-label]="'Ir para página ' + (page + 1)"
+      ></button>
+    }
+  </div>
+
+  <!-- Quick Top Tracks Bar -->
+  <section class="spotify-badge-footer">
+    <div class="footer-stats-card">
+      <div class="stats-item">
+        <span class="stats-number">#1</span>
+        <span class="stats-label">Blinding Lights (+4.35B)</span>
+      </div>
+      <div class="stats-separator"></div>
+      <div class="stats-item">
+        <span class="stats-number">#2</span>
+        <span class="stats-label">Shape of You (+3.82B)</span>
+      </div>
+      <div class="stats-separator"></div>
+      <div class="stats-item">
+        <span class="stats-number">#3</span>
+        <span class="stats-label">Someone You Loved (+3.41B)</span>
+      </div>
+      <div class="stats-separator"></div>
+      <div class="stats-item">
+        <span class="stats-number">#4</span>
+        <span class="stats-label">Sunflower (+3.32B)</span>
+      </div>
+    </div>
+  </section>
+</div>

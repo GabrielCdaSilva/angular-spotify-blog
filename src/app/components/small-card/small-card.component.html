@@ -1,0 +1,31 @@
+<article class="small-card-container">
+  <a [routerLink]="['/content', id]" class="small-card-link" [attr.aria-label]="cardTitle">
+    <div class="small-card-photo-wrapper">
+      <img
+        [src]="photoCover"
+        [alt]="cardTitle"
+        (error)="onImageError($event)"
+        class="small-card-photo"
+        loading="lazy"
+      />
+      @if (rank) {
+        <span class="small-card-rank">#{{ rank }}</span>
+      }
+    </div>
+
+    <div class="small-card-content">
+      <h3 class="small-card-title">{{ cardTitle }}</h3>
+      @if (artist || streams) {
+        <div class="small-card-meta">
+          @if (artist) {
+            <span class="small-card-artist">{{ artist }}</span>
+          }
+          @if (streams) {
+            <span class="small-card-streams">• {{ streams }} plays</span>
+          }
+        </div>
+      }
+    </div>
+  </a>
+  <div class="small-card-divider"></div>
+</article>
